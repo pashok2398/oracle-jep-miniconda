@@ -1,0 +1,15 @@
+sudo: required
+
+dist: trusty
+
+services:
+  - docker
+
+language: python
+
+install:
+  - docker build -t container .
+
+script:
+  - docker run --name cont -d container
+  - docker ps | grep -q cont
