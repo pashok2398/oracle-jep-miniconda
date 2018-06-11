@@ -1,5 +1,5 @@
 # oracle-jep-miniconda
-[![Build Status](https://travis-ci.com/henriquevcosta/oracle-jep-miniconda.svg?branch=master)](https://travis-ci.com/henriquevcosta/oracle-jep-miniconda)
+[![Build Status](https://travis-ci.com/feedzai/oracle-jep-miniconda.svg?branch=master)](https://travis-ci.com/feedzai/oracle-jep-miniconda)
 
 Docker container with the following software installed:
  * Oracle JDK 8
