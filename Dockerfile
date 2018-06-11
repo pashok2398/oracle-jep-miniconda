@@ -10,7 +10,8 @@ RUN curl -L -O -H 'Cookie: oraclelicense=accept-securebackup-cookie'  'http://do
                    bzip2 \
                    maven \
                    git \
- && yum groupinstall -y 'Development Tools'
+ && yum groupinstall -y 'Development Tools' \
+ && yum clean all
 
 #Java environment
 ENV JAVA_HOME  /usr/java/jdk1.8.0_172-amd64
