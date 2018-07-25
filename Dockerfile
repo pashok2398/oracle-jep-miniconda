@@ -5,8 +5,8 @@ MAINTAINER "Henrique Costa" henrique.costa@gmail.com
 WORKDIR /tmp/
 
 #Install JAVA
-RUN curl -L -O -H 'Cookie: oraclelicense=accept-securebackup-cookie'  'http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.rpm' \
- && yum install -y /tmp/jdk-8u172-linux-x64.rpm \
+RUN curl -L -O -H 'Cookie: oraclelicense=accept-securebackup-cookie' 'http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm' \
+ && yum install -y /tmp/jdk-8u181-linux-x64.rpm \
                    bzip2 \
                    maven \
                    git \
@@ -14,7 +14,7 @@ RUN curl -L -O -H 'Cookie: oraclelicense=accept-securebackup-cookie'  'http://do
  && yum clean all
 
 #Java environment
-ENV JAVA_HOME  /usr/java/jdk1.8.0_172-amd64
+ENV JAVA_HOME  /usr/java/jdk1.8.0_181-amd64
 RUN alternatives --set java $JAVA_HOME/jre/bin/java \
  && alternatives --set javac $JAVA_HOME/bin/javac
 
@@ -43,6 +43,7 @@ RUN echo "Installing Miniconda..." \
     && conda create -y -n ${CONDA_ENVIRONMENT} python=3 numpy scipy pandas scikit-learn \
     && echo "Done." \
     && source activate ${CONDA_ENVIRONMENT} \
+    && pip install xgboost \
     && cd /opt \
     && git clone https://github.com/ninia/jep.git \
     && cd jep \
