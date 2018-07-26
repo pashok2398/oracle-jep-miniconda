@@ -40,7 +40,7 @@ RUN echo "Installing Miniconda..." \
     && bash Miniconda3-latest-Linux-x86_64.sh -b \
     && echo "Done." \
     && echo "Creating environment..." \
-    && conda create -y -n ${CONDA_ENVIRONMENT} python=3 numpy scipy pandas scikit-learn \
+    && conda create -y -n ${CONDA_ENVIRONMENT} python=3.6 numpy scipy pandas scikit-learn \
     && echo "Done." \
     && source activate ${CONDA_ENVIRONMENT} \
     && pip install xgboost \
@@ -48,6 +48,7 @@ RUN echo "Installing Miniconda..." \
     && git clone https://github.com/ninia/jep.git \
     && cd jep \
     && echo "Installing JEP..." \
+    && git checkout v3.7.1 \
     && python setup.py build install \
     && conda clean -y -a \
     && yum clean all
