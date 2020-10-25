@@ -14,7 +14,7 @@ RUN curl -L -O -H 'Cookie: oraclelicense=accept-securebackup-cookie' 'http://dow
  && yum clean all
 
 #Java environment
-ENV JAVA_HOME  /usr/java/jdk1.8.0_181-amd64
+ENV JAVA_HOME  /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64
 RUN alternatives --set java $JAVA_HOME/jre/bin/java \
  && alternatives --set javac $JAVA_HOME/bin/javac
 
